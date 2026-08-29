@@ -27,7 +27,8 @@ Designed for use with **Mempool Watch** (or any sensor that exposes the required
 - Visual editor (entity picker, color picker, opacity slider)
 - German / English UI (follows Home Assistant language)
 - Click opens the more-info dialog of the entity
-
+<br><br>
+<img alt="Unbenannt" src="https://github.com/user-attachments/assets/cae2e075-e002-4fd4-9303-c9c9d1cbf4da" />
 ---
 
 ## Requirements
