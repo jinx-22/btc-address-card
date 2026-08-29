@@ -7,7 +7,7 @@ A Lovelace custom card for Home Assistant that displays the confirmed balance an
 
 Designed for use with **Mempool Watch** (or any sensor that exposes the required attributes).
 
-**Deutsch?** → [README_de.md](README_de.md)
+**Deutsch?** → [README_de.md](README_DE.md)
 
 ---
 
