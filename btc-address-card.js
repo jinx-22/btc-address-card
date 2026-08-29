@@ -741,6 +741,13 @@
     );
   }
 
+  /*
+   * Register the card in the
+   * Home Assistant card picker.
+   *
+   * Required by the official HA API:
+   * type + name
+   */
   window.customCards =
     window.customCards || [];
 
