@@ -163,8 +163,6 @@
     getCardSize() {
       return 3;
     }
-
-     */
     getGridOptions() {
       return {
         rows: 4,
