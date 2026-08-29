@@ -1,13 +1,18 @@
 # BTC Address Card
 
-[![HACS Custom](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
-[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2023.4%2B-blue.svg)](https://www.home-assistant.io/)
+[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-blue?style=flat-square)](https://www.home-assistant.io/)
+[![HACS](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/integration)
+[![Release](https://img.shields.io/github/v/release/jinx-22/btc-address-card?sort=semver&style=flat-square)](https://github.com/jinx-22/btc-address-card/releases)
+[![License](https://img.shields.io/github/license/jinx-22/btc-address-card?style=flat-square)](LICENSE)
+[![stars](https://img.shields.io/github/stars/jinx-22/btc-address-card)](https://github.com/jinx-22/btc-address-card/stargazers)
+[![Donate Bitcoin](https://img.shields.io/badge/₿-Bitcoin-F7931A?style=flat-square)](#bitcoin)
+[![Donate Lightning](https://img.shields.io/badge/⚡-Lightning-FFD700?style=flat-square)](#lightning)
+
+🇩🇪 [**Deutsch**](README_DE.md) · 🇬🇧 **English**
 
 A Lovelace custom card for Home Assistant that displays the confirmed balance and pending (mempool) incoming/outgoing amounts of a Bitcoin address.
 
 Designed for use with **Mempool Watch** (or any sensor that exposes the required attributes).
-
-**Deutsch?** → [README_de.md](README_DE.md)
 
 ---
 
@@ -45,6 +50,8 @@ These attributes are typically provided by the [Mempool Watch](https://github.co
 ---
 
 ## Installation
+
+### Easy installation -> [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jinx-22&repository=btc-address-card&category=plugin)
 
 ### HACS (recommended)
 
@@ -146,16 +153,28 @@ After loading the card you should see a console message:
 
 > **Note:** Replace `YOUR_USERNAME` in `documentationURL` inside `btc-address-card.js` with your real GitHub username/repo after publishing.
 
-## Development & Contributing
+---
 
-The card is written in plain vanilla JavaScript (no build step required).
+# 🧡 Support & Donations
 
-To contribute:
+## Lightning
 
-1. Fork the repository
-2. Make your changes to `btc-address-card.js`
-3. Test in Home Assistant (add as local resource)
-4. Open a Pull Request
+<p align="center">
+⚡ <b>Address:</b><br><br>
+<code>usefulplay52@walletofsatoshi.com</code><br><br>
+<img width="320" alt="Self_Wallet of Satoshi" src="https://github.com/user-attachments/assets/65cc18d9-05d1-4a00-8ccc-9922fdb54baf" />
+</p>
+
+## Bitcoin
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/f74cad36-8c05-4a33-89cd-b998075af33b" /><br><br>
+<code>bc1qkz7mtp23cmshxnru96lzgeayu0urlysvqk5vry</code><br><br>
+<img alt="Donations_240px" src="https://github.com/user-attachments/assets/196f68e4-b0e8-4f27-bded-8c4fe13b9d45" />
+</div>
+
+Thanks for your support — and a free ⭐ helps others find the project:  
+[![GitHub stars](https://img.shields.io/github/stars/jinx-22/mempool_watch?style=social)](https://github.com/jinx-22/mempool_watch/stargazers)
 
 ---
 
