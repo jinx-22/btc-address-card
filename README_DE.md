@@ -1,13 +1,19 @@
 # BTC Address Card
 
-[![HACS Custom](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
-[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2023.4%2B-blue.svg)](https://www.home-assistant.io/)
+[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-blue?style=flat-square)](https://www.home-assistant.io/)
+[![HACS](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/integration)
+[![Release](https://img.shields.io/github/v/release/jinx-22/btc-address-card?sort=semver&style=flat-square)](https://github.com/jinx-22/btc-address-card/releases)
+[![License](https://img.shields.io/github/license/jinx-22/btc-address-card?style=flat-square)](LICENSE)
+[![stars](https://img.shields.io/github/stars/jinx-22/btc-address-card)](https://github.com/jinx-22/btc-address-card/stargazers)
+[![Donate Bitcoin](https://img.shields.io/badge/₿-Bitcoin-F7931A?style=flat-square)](#bitcoin)
+[![Donate Lightning](https://img.shields.io/badge/⚡-Lightning-FFD700?style=flat-square)](#lightning)
+
+🇬🇧 [**English**](README.md) · 🇩🇪 **Deutsch**
 
 Eine Lovelace-Custom-Card für Home Assistant, die den bestätigten Saldo sowie unbestätigte (Mempool) Ein- und Ausgänge einer Bitcoin-Adresse anzeigt.
 
 Optimiert für **Mempool Watch** (oder jeden Sensor, der die benötigten Attribute bereitstellt).
 
-**English?** → [README.md](README.md)
 
 ---
 
@@ -22,6 +28,8 @@ Optimiert für **Mempool Watch** (oder jeden Sensor, der die benötigten Attribu
 - Visueller Editor (Entity-Picker, Farbwähler, Opacity-Slider)
 - Deutsche / englische Oberfläche (folgt der HA-Sprache)
 - Klick öffnet den More-Info-Dialog der Entity
+<br><br>
+<img alt="Unbenannt" src="https://github.com/user-attachments/assets/cae2e075-e002-4fd4-9303-c9c9d1cbf4da" />
 
 ---
 
@@ -45,6 +53,8 @@ Diese Attribute werden typischerweise von der [Mempool Watch](https://github.com
 ---
 
 ## Installation
+
+### Einfache Installation -> [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jinx-22&repository=btc-address-card&category=plugin)
 
 ### HACS (empfohlen)
 
@@ -134,19 +144,29 @@ Angezeigt werden:
 - Unbestätigte-TX-Badge (hervorgehoben wenn > 0)
 - Großer bestätigter Saldo
 - Vier Detailfelder: Eingang unbestätigt / Ausgang unbestätigt / Netto pending / Bestätigt
-
+  
 ---
 
-## Entwicklung & Mitwirken
+# 🧡 Support & Donations
 
-Die Card ist in reinem Vanilla-JavaScript geschrieben (kein Build-Schritt nötig).
+## Lightning
 
-Mitwirken:
+<p align="center">
+⚡ <b>Address:</b><br><br>
+<code>usefulplay52@walletofsatoshi.com</code><br><br>
+<img width="320" alt="Self_Wallet of Satoshi" src="https://github.com/user-attachments/assets/65cc18d9-05d1-4a00-8ccc-9922fdb54baf" />
+</p>
 
-1. Repository forken
-2. Änderungen an `btc-address-card.js` vornehmen
-3. In Home Assistant testen (als lokale Resource einbinden)
-4. Pull Request öffnen
+## Bitcoin
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/f74cad36-8c05-4a33-89cd-b998075af33b" /><br><br>
+<code>bc1qkz7mtp23cmshxnru96lzgeayu0urlysvqk5vry</code><br><br>
+<img alt="Donations_240px" src="https://github.com/user-attachments/assets/196f68e4-b0e8-4f27-bded-8c4fe13b9d45" />
+</div>
+
+Thanks for your support — and a free ⭐ helps others find the project:  
+[![GitHub stars](https://img.shields.io/github/stars/jinx-22/mempool_watch?style=social)](https://github.com/jinx-22/mempool_watch/stargazers)
 
 ---
 
