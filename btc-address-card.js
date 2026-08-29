@@ -1,5 +1,4 @@
 (() => {
-  const CARD_VERSION = "1.0.0";
   const CARD_TYPE = "btc-address-card";
   const EDITOR_TYPE = `${CARD_TYPE}-editor`;
 
@@ -195,15 +194,6 @@
 
     getCardSize() {
       return 3;
-    }
-
-    getGridOptions() {
-      return {
-        columns: 6,
-        rows: 3,
-        min_columns: 3,
-        min_rows: 2,
-      };
     }
 
     /*
@@ -954,13 +944,5 @@
     preview: true,
     description:
       "Confirmed balance and pending in/out (Mempool Watch). Bestätigter Saldo und unbestätigte Ein-/Ausgänge (Mempool Watch).",
-    documentationURL:
-      "https://github.com/YOUR_USERNAME/btc-address-card",
   });
-
-  console.info(
-    `%c BTC Address Card %c v${CARD_VERSION} `,
-    "color: white; background: #f7931a; font-weight: 700;",
-    "color: #f7931a; background: white; font-weight: 700;"
-  );
 })();
