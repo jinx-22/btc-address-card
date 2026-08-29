@@ -1,0 +1,7 @@
+{
+  "name": "BTC Address Card",
+  "filename": "btc-address-card.js",
+  "content_in_root": true,
+  "render_readme": true,
+  "homeassistant": "2023.4.0"
+}
