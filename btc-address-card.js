@@ -56,7 +56,11 @@
   };
 
   class BtcAddressCard extends HTMLElement {
-
+    /**
+     * Built-in Home Assistant graphical editor.
+     *
+     * This is the official getConfigForm API.
+     */
     static getConfigForm() {
       return {
         schema: [
@@ -136,6 +140,9 @@
       };
     }
 
+    /**
+     * Home Assistant supplies the card configuration here.
+     */
     setConfig(config) {
       if (!config) {
         throw new Error("Invalid configuration");
@@ -155,14 +162,37 @@
       this._render();
     }
 
+    /**
+     * Home Assistant state object.
+     */
     set hass(hass) {
       this._hass = hass;
       this._render();
     }
 
+    /**
+     * Masonry view card size.
+     *
+     * This is only used by Masonry view.
+     */
     getCardSize() {
       return 3;
     }
+
+    /**
+     * Sections view grid configuration.
+     *
+     * 12 columns exist in a section.
+     *
+     * rows:
+     *   default height
+     *
+     * min_rows:
+     *   card cannot become smaller than this
+     *
+     * No max_rows:
+     *   card may be enlarged by the grid
+     */
     getGridOptions() {
       return {
         rows: 4,
@@ -238,6 +268,11 @@
 
       /*
        * Font size is a scale relative to HA's
+       * normal card font size.
+       *
+       * 100 = normal
+       * 70  = smaller
+       * 150 = larger
        */
       const configuredFontSize =
         Number(this._config.font_size);
