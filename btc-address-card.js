@@ -2,7 +2,7 @@
   "use strict";
 
   const CARD_TYPE = "btc-address-card";
-  const VERSION = "0.9.8";
+  const VERSION = "0.9.9.a";
 
   const isAddressEntity = (state) =>
     !!(
@@ -56,11 +56,7 @@
   };
 
   class BtcAddressCard extends HTMLElement {
-    /*
-     * Home Assistant visual editor.
-     *
-     * HA creates the editor automatically from this schema.
-     */
+
     static getConfigForm() {
       return {
         schema: [
@@ -124,7 +120,7 @@
       };
     }
 
-    /*
+    /**
      * Default configuration used by the Home Assistant
      * card picker.
      */
@@ -140,16 +136,15 @@
       };
     }
 
-    /*
-     * Called by Home Assistant with the card configuration.
-     */
     setConfig(config) {
       if (!config) {
         throw new Error("Invalid configuration");
       }
 
       if (!config.entity) {
-        throw new Error("You need to define an entity");
+        throw new Error(
+          "You need to define an entity"
+        );
       }
 
       this._config = {
@@ -160,26 +155,15 @@
       this._render();
     }
 
-    /*
-     * Home Assistant state.
-     */
     set hass(hass) {
       this._hass = hass;
       this._render();
     }
 
-    /*
-     * Masonry view.
-     */
     getCardSize() {
       return 3;
     }
 
-    /*
-     * Sections view.
-     *
-     * Home Assistant controls the actual card size.
-     * No fixed pixel height is defined here.
      */
     getGridOptions() {
       return {
@@ -255,11 +239,7 @@
         confirmed === "unknown";
 
       /*
-       * Font size:
-       *
-       * 100 = default
-       * 70  = minimum
-       * 150 = maximum
+       * Font size is a scale relative to HA's
        */
       const configuredFontSize =
         Number(this._config.font_size);
@@ -321,7 +301,6 @@
             flex: 1 1 auto;
 
             width: 100%;
-
             min-width: 0;
             min-height: 0;
 
@@ -330,9 +309,6 @@
             padding: 16px;
           }
 
-          /*
-           * Upper section remains at its natural size.
-           */
           .head {
             display: flex;
 
@@ -340,8 +316,6 @@
             justify-content: space-between;
 
             gap: 12px;
-
-            flex: 0 0 auto;
 
             min-width: 0;
           }
@@ -354,7 +328,6 @@
             font-weight: 500;
 
             font-size: 1.05em;
-
             line-height: 1.3;
 
             color:
@@ -406,17 +379,10 @@
               var(--warning-color);
           }
 
-          /*
-           * Balance remains part of the fixed/natural
-           * upper section.
-           */
           .balance {
-            flex: 0 0 auto;
-
             margin: 14px 0 4px;
 
             font-size: 1.7em;
-
             font-weight: 650;
 
             letter-spacing: -0.02em;
@@ -430,7 +396,6 @@
 
           .unit {
             font-size: 0.85em;
-
             font-weight: 500;
 
             margin-left: 4px;
@@ -446,65 +411,29 @@
             padding: 16px;
           }
 
-          /*
-           * Flexible lower section.
-           *
-           * It receives the remaining height supplied
-           * by Home Assistant's grid.
-           */
           .grid {
             display: grid;
 
             grid-template-columns:
-              repeat(
-                2,
-                minmax(0, 1fr)
-              );
-
-            grid-template-rows:
-              repeat(
-                2,
-                minmax(0, 1fr)
-              );
+              1fr 1fr;
 
             gap: 8px 12px;
 
-            margin-top: 14px;
+            margin-top: auto;
 
             padding-top: 12px;
 
             border-top:
               1px solid
               var(--divider-color);
-
-            flex: 1 1 auto;
-
-            min-height: 0;
-
-            align-content: stretch;
           }
 
-          /*
-           * Center the information inside each
-           * flexible grid row.
-           */
           .item {
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
             min-width: 0;
-            min-height: 0;
-
-            box-sizing: border-box;
           }
 
           .item .lbl {
             font-size: 0.72em;
-
-            line-height: 1.2;
 
             text-transform: uppercase;
 
@@ -521,10 +450,7 @@
               tabular-nums;
 
             font-size: 0.95em;
-
             font-weight: 500;
-
-            line-height: 1.25;
 
             color:
               var(--primary-text-color);
@@ -548,7 +474,6 @@
         </style>
 
         <ha-card>
-
           ${
             !entity
               ? `
@@ -608,14 +533,12 @@
                           Number(
                             unconfirmed
                           ) || 0
-                        }
-                        TX
+                        } TX
                       </div>
 
                     </div>
 
                     <div class="balance">
-
                       ${fmtBtc(
                         confirmed
                       )}
@@ -623,7 +546,6 @@
                       <span class="unit">
                         BTC
                       </span>
-
                     </div>
 
                     <div class="grid">
@@ -724,7 +646,6 @@
                   </div>
                 `
           }
-
         </ha-card>
       `;
 
@@ -745,7 +666,6 @@
               {
                 bubbles: true,
                 composed: true,
-
                 detail: {
                   entityId: entity,
                 },
@@ -758,10 +678,7 @@
 
     _esc(value) {
       return String(value ?? "")
-        .replace(
-          /&/g,
-          "&amp;"
-        )
+        .replace(/&/g, "&amp;")
         .replace(
           /</g,
           "&lt;"
@@ -791,22 +708,12 @@
     );
   }
 
-  /*
-   * Home Assistant card picker registration.
-   *
-   * Do not filter or replace the global array.
-   * Simply register the card as required by
-   * the Custom Card documentation.
-   */
   window.customCards =
     window.customCards || [];
 
   window.customCards.push({
     type: CARD_TYPE,
-
-    name:
-      "BTC Address Card",
-
+    name: "BTC Address Card",
     preview: true,
 
     description:
