@@ -3,7 +3,7 @@
 
   const CARD_TYPE = "btc-address-card";
   const EDITOR_TYPE = `${CARD_TYPE}-editor`;
-  const VERSION = "0.9.9.g";
+  const VERSION = "1.1.0.0";
 
   const isAddressEntity = (state) =>
     !!(
