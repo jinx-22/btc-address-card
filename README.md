@@ -8,162 +8,162 @@
 [![Donate Bitcoin](https://img.shields.io/badge/₿-Bitcoin-F7931A?style=flat-square)](#bitcoin)
 [![Donate Lightning](https://img.shields.io/badge/⚡-Lightning-FFD700?style=flat-square)](#lightning)
 
-🇩🇪 [**Deutsch**](README_DE.md) · 🇬🇧 **English**
+🇩🇪 **Deutsch** · 🇬🇧 [**English**](README.md)
 
-A Lovelace custom card for Home Assistant that displays the confirmed balance and pending (mempool) incoming/outgoing amounts of a Bitcoin address.
+Eine schlanke Lovelace Custom Card für Home Assistant, die den bestätigten Bitcoin-Saldo sowie ausstehende Mempool-Aktivitäten einer Bitcoin-Adresse anzeigt.
 
-Designed for use with **Mempool Watch** (or any sensor that exposes the required attributes).
+Entwickelt für die Verwendung mit [**Mempool Watch**](https://github.com/jinx-22/mempool_watch).
 
 ---
 
-## Features
+## Funktionen
 
-- Confirmed balance (large, easy to read)
-- Pending incoming / pending outgoing
-- Net pending change (color-coded: green / red)
-- Unconfirmed transaction count badge
-- Shortened address with full address on hover
-- Optional custom card background color + opacity
-- Visual editor (entity picker, color picker, opacity slider)
-- German / English UI (follows Home Assistant language)
-- Click opens the more-info dialog of the entity
-<br><br>
-<img alt="Unbenannt" src="https://github.com/user-attachments/assets/cae2e075-e002-4fd4-9303-c9c9d1cbf4da" />
----
+- ₿ Bestätigter BTC-Saldo
+- Ausstehende eingehende / ausgehende BTC
+- Nettoänderung der ausstehenden Beträge
+- Farblich hervorgehobene positive / negative Änderungen
+- Anzahl unbestätigter Transaktionen
+- Gekürzte Bitcoin-Adresse
+- Vollständige Adresse beim Überfahren mit der Maus
+- Klick auf die Karte öffnet den More-Info-Dialog der Entität
+- Visueller Konfigurationseditor
+- Auswahl der Bitcoin-Adress-Entität
+- Eigener Kartenname
+- **Auswahl eines Home-Assistant-Themes**
+- **Schriftgröße: 70–150 %**
+- Native Home-Assistant-Grid-Größenanpassung
+- Responsives Layout
+- Keine externen Abhängigkeiten
 
-## Requirements
-
-This card expects a sensor entity with at least these attributes:
-
-| Attribute            | Description                          |
-|----------------------|--------------------------------------|
-| `address`            | The Bitcoin address                  |
-| `unconfirmed_count`  | Number of unconfirmed transactions   |
-| `pending_incoming`   | Pending incoming amount (BTC)        |
-| `pending_outgoing`   | Pending outgoing amount (BTC)        |
-| `pending_change`     | Net pending change (BTC)             |
-| `confirmed_balance`  | Confirmed balance (optional, falls back to state) |
-
-The **state** of the entity should be the current (usually confirmed) balance.
-
-These attributes are typically provided by the [Mempool Watch](https://github.com/) integration / sensors.
+<img width="1146" height="656" alt="Unbenannt1" src="https://github.com/user-attachments/assets/8551ced1-ebae-4aeb-80a3-39b295454334" />
 
 ---
 
 ## Installation
 
-### Easy installation -> [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jinx-22&repository=btc-address-card&category=plugin)
+### Einfache Installation — Empfohlen
 
-### HACS (recommended)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jinx-22&repository=btc-address-card&category=plugin)
 
-1. Open **HACS** → **Frontend** (Dashboard)
-2. Click the three-dot menu → **Custom repositories**
-3. Add the repository URL of this GitHub repo
-4. Category: **Dashboard** (or Lovelace / Plugin)
-5. Click **Download** / **Install**
-6. Reload the frontend (or clear browser cache)
+Klicke auf den Button oben, um **BTC Address Card** direkt über HACS zu installieren.
 
-After installation the resource is registered automatically in most setups.
+### HACS
 
-### Manual installation
+1. Öffne **HACS → Frontend**
+2. Öffne das Drei-Punkte-Menü → **Benutzerdefinierte Repositories**
+3. Füge hinzu:
 
-1. Download `btc-address-card.js` from the latest release (or from the repository root)
-2. Copy it to `/config/www/btc-address-card/btc-address-card.js`  
-   (or any path under `/config/www/`)
-3. Add a Lovelace resource:
+   https://github.com/jinx-22/btc-address-card
 
-   **UI method**  
-   Settings → Dashboards → ⋮ → Resources → Add Resource  
-   - URL: `/local/btc-address-card/btc-address-card.js`  
-   - Type: **JavaScript Module**
+4. Wähle **Dashboard**
+5. Installiere **BTC Address Card**
+6. Lade das Home-Assistant-Frontend neu
 
-   **YAML method**
-   ```yaml
-   lovelace:
-     resources:
-       - url: /local/btc-address-card/btc-address-card.js
-         type: module
-   ```
+### Manuelle Installation
 
-4. Restart Home Assistant or reload resources and clear browser cache.
+Lade `btc-address-card.js` aus dem neuesten Release herunter und kopiere die Datei nach:
+
+`/config/www/btc-address-card/btc-address-card.js`
+
+Füge anschließend die Ressource hinzu:
+
+    lovelace:
+      resources:
+        - url: /local/btc-address-card/btc-address-card.js
+          type: module
+
+Lade das Home-Assistant-Frontend anschließend neu.
 
 ---
 
-## Configuration
+## Konfiguration
 
-### Minimal example
+### Minimal
 
-```yaml
-type: custom:btc-address-card
-entity: sensor.my_btc_address
-```
+    type: custom:btc-address-card
+    entity: sensor.my_btc_address
 
-### Full example
+### Vollständig
 
-```yaml
-type: custom:btc-address-card
-entity: sensor.my_btc_address
-name: Cold Wallet
-card_color: [30, 136, 229]   # RGB
-card_opacity: 85             # 0–100
-```
+    type: custom:btc-address-card
+    entity: sensor.my_btc_address
+    name: Cold Wallet
+    theme: My Theme
+    font_size: 110
 
-### Options
+### Optionen
 
-| Name           | Type     | Required | Default              | Description                                      |
-|----------------|----------|----------|----------------------|--------------------------------------------------|
-| `type`         | string   | **yes**  | –                    | `custom:btc-address-card`                        |
-| `entity`       | string   | **yes**  | –                    | Sensor entity that provides the BTC address data |
-| `name`         | string   | no       | Entity friendly name | Custom title shown on the card                   |
-| `card_color`   | list[int]| no       | Theme background     | RGB color for the card background `[R, G, B]`    |
-| `card_opacity` | number   | no       | `100`                | Opacity of the background color (0–100)          |
+| Option | Typ | Erforderlich | Standard | Beschreibung |
+|---|---|---|---|---|
+| `type` | string | Ja | — | `custom:btc-address-card` |
+| `entity` | string | Ja | — | Bitcoin-Adresssensor |
+| `name` | string | Nein | Entitätsname | Eigener Kartenname |
+| `theme` | string | Nein | HA-Standard | Home-Assistant-Theme |
+| `font_size` | number | Nein | `100` | Schriftgröße von 70–150 % |
 
 ---
 
-## Visual Editor
+## Visueller Editor
 
-The card ships with a full visual configuration editor:
+Die Karte verfügt über einen integrierten visuellen Home-Assistant-Konfigurationseditor.
 
-- Entity picker (only shows compatible BTC-address sensors)
-- RGB color selector
-- Opacity slider (0–100)
+Verfügbare Optionen:
 
-You can configure everything without writing YAML.
+- Auswahl der Bitcoin-Adress-Entität
+- Eigener Name
+- **Home-Assistant-Theme-Auswahl**
+- **Schriftgrößenregler (70–150 %)**
 
----
-
-## Screenshot / Preview
-
-The card appears in the Lovelace card picker under **BTC Address Card**.
-
-It shows:
-
-- Title + shortened address
-- Unconfirmed TX badge (highlighted when > 0)
-- Large confirmed balance
-- Four detail fields: Pending in / Pending out / Net pending / Confirmed
+Eine YAML-Konfiguration ist dafür nicht erforderlich.
 
 ---
 
-## Version
+## Benötigte Sensor-Attribute
 
-Current version: **1.0.0**
+Die ausgewählte Entität sollte folgende Attribute bereitstellen:
 
-After loading the card you should see a console message:
-`BTC Address Card v1.0.0`
+| Attribut | Beschreibung |
+|---|---|
+| `address` | Bitcoin-Adresse |
+| `confirmed_balance` | Bestätigter BTC-Saldo |
+| `pending_incoming` | Ausstehende eingehende BTC |
+| `pending_outgoing` | Ausstehende ausgehende BTC |
+| `pending_change` | Nettoänderung der ausstehenden BTC |
+| `unconfirmed_count` | Anzahl unbestätigter Transaktionen |
 
-> **Note:** Replace `YOUR_USERNAME` in `documentationURL` inside `btc-address-card.js` with your real GitHub username/repo after publishing.
+Die Karte wurde hauptsächlich für die Bitcoin-Adresssensoren von **Mempool Watch** entwickelt.
 
 ---
 
-# 🧡 Support & Donations
+## Sprachen
+
+Unterstützte Sprachen:
+
+- 🇬🇧 Englisch
+- 🇩🇪 Deutsch
+
+Die Benutzeroberfläche folgt automatisch der in Home Assistant eingestellten Sprache.
+
+---
+
+## Mempool Watch
+
+Die BTC Address Card wurde für die Verwendung mit:
+
+[**Mempool Watch**](https://github.com/jinx-22/mempool_watch)
+
+entwickelt.
+
+---
+
+# 🧡 Support & Spenden
 
 ## Lightning
 
 <p align="center">
-⚡ <b>Address:</b><br><br>
+⚡ <b>Lightning-Adresse</b><br><br>
 <code>usefulplay52@walletofsatoshi.com</code><br><br>
-<img width="320" alt="Self_Wallet of Satoshi" src="https://github.com/user-attachments/assets/65cc18d9-05d1-4a00-8ccc-9922fdb54baf" />
+<img width="320" alt="Wallet of Satoshi" src="https://github.com/user-attachments/assets/65cc18d9-05d1-4a00-8ccc-9922fdb54baf" />
 </p>
 
 ## Bitcoin
@@ -171,20 +171,21 @@ After loading the card you should see a console message:
 <div align="center">
 <img src="https://github.com/user-attachments/assets/f74cad36-8c05-4a33-89cd-b998075af33b" /><br><br>
 <code>bc1qkz7mtp23cmshxnru96lzgeayu0urlysvqk5vry</code><br><br>
-<img alt="Donations_240px" src="https://github.com/user-attachments/assets/196f68e4-b0e8-4f27-bded-8c4fe13b9d45" />
+<img alt="Bitcoin-Spenden" src="https://github.com/user-attachments/assets/196f68e4-b0e8-4f27-bded-8c4fe13b9d45" />
 </div>
 
-Thanks for your support — and a free ⭐ helps others find the project:  
-[![GitHub stars](https://img.shields.io/github/stars/jinx-22/mempool_watch?style=social)](https://github.com/jinx-22/mempool_watch/stargazers)
+Vielen Dank für deine Unterstützung! ❤️
+
+[![GitHub Stars](https://img.shields.io/github/stars/jinx-22/btc-address-card?style=social)](https://github.com/jinx-22/btc-address-card/stargazers)
 
 ---
 
-## License
+## Lizenz
 
-MIT – see [LICENSE](LICENSE)
+MIT – siehe [LICENSE](LICENSE)
 
 ---
 
 ## Credits
 
-Inspired by common Home Assistant custom-card patterns and designed for Mempool Watch style sensors.
+Entwickelt für Home Assistant und optimiert für Bitcoin-Adresssensoren von Mempool Watch.
