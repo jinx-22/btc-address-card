@@ -2,6 +2,7 @@
 
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-blue?style=flat-square)](https://www.home-assistant.io/)
 [![HACS](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/integration)
+![GitHub total downloads](https://img.shields.io/github/downloads/jinx-22/btc-address-card/total?style=flat-square&color=red)
 [![Release](https://img.shields.io/github/v/release/jinx-22/btc-address-card?sort=semver&style=flat-square)](https://github.com/jinx-22/btc-address-card/releases)
 [![License](https://img.shields.io/github/license/jinx-22/btc-address-card?style=flat-square)](LICENSE)
 [![stars](https://img.shields.io/github/stars/jinx-22/btc-address-card)](https://github.com/jinx-22/btc-address-card/stargazers)
